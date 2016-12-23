@@ -66,6 +66,7 @@ public struct FormatOptions: CustomStringConvertible {
     public var uppercaseHex: Bool
     public var experimentalRules: Bool
     public var fragment: Bool
+    public var spaceBetweenKeywords: Bool
 
     public init(indent: String = "    ",
                 linebreak: String = "\n",
@@ -84,7 +85,8 @@ public struct FormatOptions: CustomStringConvertible {
                 wrapElements: WrapMode = .beforeFirst,
                 uppercaseHex: Bool = true,
                 experimentalRules: Bool = false,
-                fragment: Bool = false) {
+                fragment: Bool = false,
+                spaceBetweenKeywords: Bool = false) {
 
         self.indent = indent
         self.linebreak = linebreak
@@ -104,6 +106,7 @@ public struct FormatOptions: CustomStringConvertible {
         self.uppercaseHex = uppercaseHex
         self.experimentalRules = experimentalRules
         self.fragment = fragment
+        self.spaceBetweenKeywords = spaceBetweenKeywords
     }
 
     public var description: String {

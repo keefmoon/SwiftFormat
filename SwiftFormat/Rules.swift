@@ -1674,4 +1674,24 @@ extension FormatRules {
             }
         }
     }
+    
+    // MARK: Added Custom Rules
+    
+    /// Ensure spaces between keywords
+    public class func spaceBetweenKeywords(_ formatter: Formatter) {
+        
+        formatter.forEach(.identifierOrKeyword) { i, token in
+            
+            let prevIndex = i - 1
+            let nextIndex = i + 1
+            
+            if formatter.token(at: prevIndex)?.isSpaceOrLinebreak == false {
+                formatter.insertSpace(" ", at: prevIndex)
+            }
+            
+            if formatter.token(at: nextIndex)?.isSpaceOrLinebreak == false {
+                formatter.insertSpace(" ", at: nextIndex)
+            }
+        }
+    }
 }
